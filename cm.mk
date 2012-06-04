@@ -2,7 +2,7 @@
 $(call inherit-product, vendor/cm/config/cdma.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := R800x
+PRODUCT_RELEASE_NAME := cna_mod_zeusc
 
 TARGET_BOOTANIMATION_NAME := vertical-480x854
 
@@ -14,7 +14,7 @@ $(call inherit-product, device/semc/zeusc/device_zeusc.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := zeus
-PRODUCT_NAME := Xperia Play
+PRODUCT_NAME := cna_mod_zeusc
 PRODUCT_BRAND := SEMC
 PRODUCT_MODEL := R800x
 

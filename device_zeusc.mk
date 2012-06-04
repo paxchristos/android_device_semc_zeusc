@@ -1,15 +1,9 @@
+#Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=R800i BUILD_FINGERPRINT="SEMC/LT18i_0000-0000/LT18i:4.0.3/4.1.C.0.7/-H9_3w:user/release-keys" PRIVATE_BUILD_DESC="LT18i-user 4.0.3 4.1.C.0.7 -H9_3w test-keys"
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
-# proprietary side of the device
-$(call inherit-product-if-exists, vendor/semc/zeusc/zeusc-vendor.mk)
-
-
-# Discard inherited values and use our own instead.
-PRODUCT_NAME := zeus
-PRODUCT_DEVICE := zeus
-PRODUCT_MODEL := zeus
 
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 PRODUCT_COPY_FILES += \
