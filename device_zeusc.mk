@@ -93,7 +93,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hwui.render_dirty_regions=false \
     hwui.disable_vsync=true \
     persist.sys.usb.config=mass_storage
-    ro.sf.lcd_density=240 \
-
-    
-    
+    ro.sf.lcd_density=240 
