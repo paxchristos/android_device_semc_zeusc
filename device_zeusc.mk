@@ -37,5 +37,4 @@ PRODUCT_LOCALES += hdpi
 
 -include device/semc/msm7x30-common/prebuilt/resources-hdpi.mk
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240
+
