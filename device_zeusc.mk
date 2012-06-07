@@ -13,7 +13,7 @@ TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 ### Merged in MSM7x30-common.mk here
-DEVICE_PACKAGE_OVERLAYS += device/semc/msm7x30-common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/semc/zeusc/overlay
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
@@ -34,12 +34,11 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/semc/msm7x30-common/prebuilt/fillers:root/filler \
-    device/semc/msm7x30-common/prebuilt/10hostapconf:system/etc/init.d/10hostapconf \
-    device/semc/msm7x30-common/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
-    device/semc/msm7x30-common/prebuilt/gps.conf:system/etc/gps.conf \
-    device/semc/msm7x30-common/prebuilt/fstab:root/fstab \
-    device/semc/msm7x30-common/prebuilt/bootrec:root/sbin/bootrec
+    device/semc/zeusc/prebuilt/10hostapconf:system/etc/init.d/10hostapconf \
+    device/semc/zeusc/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
+    device/semc/zeusc/prebuilt/gps.conf:system/etc/gps.conf \
+    device/semc/zeusc/prebuilt/fstab:root/fstab \
+    device/semc/zeusc/prebuilt/bootrec:root/sbin/bootrec
 
 
 #recovery resources
@@ -132,7 +131,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     device/semc/zeusc/prebuilt/init.semc.usb.rc:root/init.semc.usb.rc \
-    device/semc/msm7x30-common/prebuilt/logo_H.rle:root/logo.rle \
+    device/semc/zeusc/prebuilt/logo_H.rle:root/logo.rle \
     device/semc/zeusc/prebuilt/hw_config.sh:system/etc/hw_config.sh \
     device/semc/zeusc/recovery.fstab:root/recovery.fstab \
     device/semc/zeusc/prebuilt/bootrec-device:root/sbin/bootrec-device
