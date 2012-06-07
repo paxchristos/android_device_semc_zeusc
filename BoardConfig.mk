@@ -1,4 +1,3 @@
--include device/semc/zeus-common/BoardConfigCommon.mk
 -include vendor/semc/zeusc/BoardConfigVendor.mk
 
 SENSORS_COMPASS_AK897X := true
@@ -12,4 +11,80 @@ TARGET_TOUCHPAD_INPUT_DEVICE_ID := 0x10003
 TARGET_OTA_ASSERT_DEVICE := R800x,zeus,zeusc
 
 
+##Zeus-common boardconfigcommon.mk
+TARGET_BOOTLOADER_BOARD_NAME := zeus
 
+# Wifi related defines
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WPA_SUPPLICANT_VERSION      := VER_0_6_X
+BOARD_WLAN_DEVICE           := bcm4329
+WIFI_DRIVER_MODULE_NAME     := bcm4329
+
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BLUETOOTH_BCM_SEMC := true
+
+TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
+
+BOARD_USES_STEREO_HW_SPEAKERS := true
+
+BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
+BOARD_CAMERA_USE_GETBUFFERINFO := true
+##End of zeus-common
+
+##start of msm7x30-common 
+TARGET_SPECIFIC_HEADER_PATH := device/semc/zeusc/include
+
+TARGET_NO_BOOTLOADER := true
+
+TARGET_BOARD_PLATFORM := msm7x30
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_USES_2G_VM_SPLIT := true
+
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+ARCH_ARM_HAVE_TLS_REGISTER := true
+#ARCH_ARM_HAVE_ARMV7A_BUG := true
+
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_HAVE_BLUETOOTH := true
+
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_GPS := true
+BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
+USE_OPENGL_RENDERER := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_SF_BYPASS := false
+TARGET_HAVE_BYPASS := false
+TARGET_USES_OVERLAY := true
+TARGET_GRALLOC_USES_ASHMEM := true
+TARGET_USES_GENLOCK := true
+TARGET_FORCE_CPU_UPLOAD := true
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS
+BOARD_EGL_CFG := device/semc/zeusc/prebuilt/egl.cfg
+
+BUILD_SEMC_SENSORS := true
+
+BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := semc
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
+BOARD_CUSTOM_BOOTIMG_MK := device/semc/zeusc/custombootimg.mk
+TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
+BOARD_HAS_SMALL_RECOVERY := true
+BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_USES_RECOVERY_CHARGEMODE := false
+BOARD_CUSTOM_GRAPHICS := ../../../device/semc/zeusc/recovery/graphics.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/semc/zeusc/recovery/recovery_keys.c
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/mmcblk0p1
+
+BOARD_KERNEL_CMDLINE := console=null
+BOARD_KERNEL_BASE := 0x00200000
+BOARD_RECOVERY_BASE := 0x00200000
+
+# A custom ota package maker for a device without an exposed boot partition
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/semc/zeusc/releasetools/semc_ota_from_target_files
+##end of msm7x30-common
