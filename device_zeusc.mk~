@@ -11,6 +11,10 @@ PRODUCT_NAME := zeus
 PRODUCT_DEVICE := zeus
 PRODUCT_MODEL := zeus
 
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel
+
 -include device/semc/zeus-common/zeus.mk
 
 # These is the hardware-specific overlay, which points to the location
